@@ -1,5 +1,5 @@
 ls -a
 ls -A
 ls -m
-ls -c
+ls -tr
 ls -AF
