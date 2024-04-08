@@ -1,5 +1,5 @@
-ls
+ls -I '.*'
 ls -A
 ls -m
-ls -At
+ls -Alt
 ls -AF
