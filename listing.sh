@@ -1,1 +1,2 @@
-ls -u
+ls
+ls -A
