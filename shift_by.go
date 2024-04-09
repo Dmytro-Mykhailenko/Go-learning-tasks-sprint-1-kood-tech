@@ -4,7 +4,7 @@ func ShiftBy(r rune, step int) rune {
 
 	var b rune
 
-	b = r << step
+	b = r >> step
 
 	return b
 
