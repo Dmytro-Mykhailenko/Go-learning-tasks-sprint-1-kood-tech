@@ -10,9 +10,9 @@ func CountDivisible(from, to, step, divisor int) int {
 
 	}
 
-	for from; from < to; from += step {
+	for i := from; i < to; i += step {
 
-		if from%divisor == 0 {
+		if i%divisor == 0 {
 
 			count++
 
