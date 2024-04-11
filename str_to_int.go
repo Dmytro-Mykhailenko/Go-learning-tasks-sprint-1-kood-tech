@@ -18,17 +18,14 @@ func StrToInt(s string) int {
 
 	for n := 0; n < len(s); n++ {
 
-		if s[n] == ' ' {
-
-			return 0
-		}
-
 		if (s[n] == '0' || s[n] == '-' || s[n] == '+') && isFirstZero {
 
 			continue
 
-		} else {
+		} else if s[n] < '0' || s[n] > '9' {
 
+			return 0
+		} else {
 			isFirstZero = false
 		}
 
@@ -36,15 +33,15 @@ func StrToInt(s string) int {
 
 			x := ((len(s) - 1) - n)
 
-			var mnoj = 1
+			var val = 1
 
 			for i := 0; i < x; i++ {
 
-				mnoj *= 10
+				val *= 10
 
 			}
 
-			resInt += int(s[n]-'0') * mnoj
+			resInt += int(s[n]-'0') * val
 		}
 	}
 
