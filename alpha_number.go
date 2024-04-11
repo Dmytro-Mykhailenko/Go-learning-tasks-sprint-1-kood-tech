@@ -1,10 +1,10 @@
 package sprint
 
-import "fmt"
+import "strconv"
 
 func AlphaNumber(n int) string {
 
-	s := fmt.Sprint(n)
+	s := strconv.Itoa(n)
 
 	return s
 
