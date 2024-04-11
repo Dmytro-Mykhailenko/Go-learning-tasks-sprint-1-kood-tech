@@ -1,18 +1,16 @@
 package sprint
 
-import "fmt"
-
 func Countdown(n int) string {
 
 	var resStr string
 
-	for i := n; n > 0; i -= 2 {
+	for i := n; i > 0; i -= 2 {
 
-		resStr += fmt.Sprint(i) + ", "
+		resStr += string('0'+i) + ", "
 
 	}
 
-	resStr += ", 0!"
+	resStr += "0!"
 
 	return resStr
 
