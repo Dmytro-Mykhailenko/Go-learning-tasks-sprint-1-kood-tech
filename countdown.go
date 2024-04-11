@@ -6,9 +6,9 @@ func Countdown(n int) string {
 
 	var resStr string
 
-	for n; n > 0; n -= 2 {
+	for i := n; n > 0; i -= 2 {
 
-		resStr += fmt.Sprint(n) + ", "
+		resStr += fmt.Sprint(i) + ", "
 
 	}
 
