@@ -36,6 +36,10 @@ func Pairs() string {
 
 	}
 
+	if len(resStr) > 2 {
+		resStr = resStr[:len(resStr)-2]
+	}
+
 	return resStr
 
 }
