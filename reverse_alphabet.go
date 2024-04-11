@@ -16,7 +16,7 @@ func ReverseAlphabet(step int) string {
 
 		resStr += string(ch)
 
-		ch += rune(step)
+		ch -= rune(step)
 
 	}
 
