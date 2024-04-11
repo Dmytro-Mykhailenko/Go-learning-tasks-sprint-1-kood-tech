@@ -1,10 +1,10 @@
 package sprint
 
-import "strconv"
+import "strings"
 
 func AlphaNumber(n int) string {
 
-	s := strconv.Itoa(n)
+	s := strings.Clone("")
 
 	return s
 
