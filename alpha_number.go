@@ -1,11 +1,30 @@
 package sprint
 
-import "strings"
-
 func AlphaNumber(n int) string {
 
-	s := strings.Clone("")
+	var resStr string
+	var isNegative bool
 
-	return s
+	if n < 0 {
+
+		isNegative = true
+		n = -n
+	}
+
+	for n > 0 {
+
+		x := n % 10
+
+		resStr = string('a'+x) + resStr
+
+		n /= 10
+	}
+
+	if isNegative {
+
+		resStr = "-" + resStr
+	}
+
+	return resStr
 
 }
