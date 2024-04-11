@@ -2,6 +2,10 @@ package sprint
 
 func AlphaNumber(n int) string {
 
+	if n == 0 {
+		return "a"
+	}
+
 	var resStr string
 	var isNegative bool
 
