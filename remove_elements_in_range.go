@@ -7,7 +7,7 @@ func RemoveElementsInRange(arr []float64, from, to int) []float64 {
 	// if (from < 0 && to < 0) || (from >= len(arr) && to >= len(arr)) {
 	// 	return arr
 	if from < to {
-		if to < 0 {
+		if from < 0 {
 			minI = 0
 		} else {
 			minI = from
