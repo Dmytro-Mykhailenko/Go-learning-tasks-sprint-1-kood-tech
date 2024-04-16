@@ -2,13 +2,21 @@ package sprint
 
 func ToCapitalCase(s string) string {
 	res := []rune(s)
+	var firstSimbolOrDigit bool
 
 	for i, ch := range res {
-		if i != 0 && !IsSimbolOrDigit(rune(s[i-1])) && IsSimbol(ch) {
-			if IsLower(ch) {
-				res[i] = ch - 32
-			}
 
+		if IsSimbolOrDigit(ch) && !firstSimbolOrDigit {
+			firstSimbolOrDigit = true
+			if IsSimbol(ch) {
+				if IsLower(ch) {
+					res[i] = ch - 32
+				}
+			}
+		}
+
+		if !IsSimbolOrDigit(ch) {
+			firstSimbolOrDigit = false
 		}
 
 	}
