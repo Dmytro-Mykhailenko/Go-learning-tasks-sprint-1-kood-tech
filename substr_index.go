@@ -2,8 +2,11 @@ package sprint
 
 func SubstrIndex(s string, toFind string) int {
 	var j, cnt int
-	if len(toFind) == 0 || len(s) == 0 || s == toFind {
+	if len(toFind) == 0 || s == toFind {
 		return 0
+	}
+	if len(s) == 0 {
+		return -1
 	}
 	for i := 0; i < len(s); i++ {
 		if s[i] == toFind[j] && j != len(toFind)-1 {
