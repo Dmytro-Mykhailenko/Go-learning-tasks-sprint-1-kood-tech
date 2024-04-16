@@ -1,7 +1,7 @@
 package sprint
 
 func SplitWhitespaces(s string) []string {
-	var res []string
+	res := []string{}
 	var word []rune
 
 	for i, ch := range s {
