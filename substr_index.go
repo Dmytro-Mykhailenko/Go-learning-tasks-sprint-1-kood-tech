@@ -9,7 +9,7 @@ func SubstrIndex(s string, toFind string) int {
 
 	cnt := 0
 
-	for i, _ := range s {
+	for i := 0; i < len(s); i++ {
 		if i+len(toFind) <= len(s) {
 			if s[i:i+len(toFind)] == toFind {
 				cnt++
