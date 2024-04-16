@@ -4,8 +4,8 @@ func ToCapitalCase(s string) string {
 	res := []rune(s)
 
 	for i, ch := range res {
-		if ((i != 0 && !IsSimbolOrDigit(rune(s[i-1]))) || i == 0) && IsSimbol(ch) {
-			if !IsDigit(ch) && IsLower(ch) {
+		if i != 0 && !IsSimbolOrDigit(rune(s[i-1])) && IsSimbol(ch) {
+			if IsLower(ch) {
 				res[i] = ch - 32
 			}
 
