@@ -33,6 +33,21 @@ func IsLower(ch rune) bool {
 	return false
 }
 
+func IsUpper(ch rune) bool {
+	if ch >= 'A' && ch <= 'Z' {
+		return true
+	}
+	return false
+}
+
+func LowerToUpper(ch rune) rune {
+	return ch - 32
+}
+
+func UpperToLower(ch rune) rune {
+	return ch + 32
+}
+
 func IsSimbol(ch rune) bool {
 	if ch >= 'A' && ch <= 'Z' || ch >= 'a' && ch <= 'z' {
 		return true
