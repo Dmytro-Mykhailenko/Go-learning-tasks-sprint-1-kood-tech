@@ -12,9 +12,7 @@ func ToCapitalCase(s string) string {
 				res[i] = LowerToUpper(ch)
 			}
 		} else if IsSimbol(ch) && firstSimbolOrDigit {
-			if IsLower(ch) {
-				res[i] = LowerToUpper(ch)
-			} else if IsUpper(ch) {
+			if IsUpper(ch) {
 				res[i] = UpperToLower(ch)
 			}
 		}
