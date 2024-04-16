@@ -1,7 +1,11 @@
 package sprint
 
-import "unicode/utf8"
-
 func StrLength(s string) []int {
-	return []int{utf8.RuneCountInString(s), len(s)}
+	runeCount := 0
+
+	for range s {
+		runeCount++
+	}
+
+	return []int{runeCount, len(s)}
 }
