@@ -8,17 +8,20 @@ func ToCapitalCase(s string) string {
 
 		if IsSimbolOrDigit(ch) && !firstSimbolOrDigit {
 			firstSimbolOrDigit = true
-			if IsSimbol(ch) {
-				if IsLower(ch) {
-					res[i] = ch - 32
-				}
+			if IsSimbol(ch) && IsLower(ch) {
+				res[i] = LowerToUpper(ch)
+			}
+		} else if IsSimbol(ch) && firstSimbolOrDigit {
+			if IsLower(ch) {
+				res[i] = LowerToUpper(ch)
+			} else if IsUpper(ch) {
+				res[i] = UpperToLower(ch)
 			}
 		}
 
 		if !IsSimbolOrDigit(ch) {
 			firstSimbolOrDigit = false
 		}
-
 	}
 	return string(res)
 }
