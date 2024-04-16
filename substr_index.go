@@ -9,12 +9,14 @@ func SubstrIndex(s string, toFind string) int {
 
 	cnt := 0
 
-	for i := 0; i <= len(s)-len(toFind); i++ {
-		for j := 0; j < len(toFind); j++ {
-			if s[i+j] == toFind[j] && j == len(toFind)-1 {
-				cnt++
-				i += j
-			} else if s[i+j] == toFind[j] && j != len(toFind)-1 {
+	spr := []rune(toFind)
+	str := []rune(s)
+
+	for i := 0; i <= len(str)-len(spr); i++ {
+		for j := 0; j < len(spr); j++ {
+			if str[i+j] == spr[j] && j == len(spr)-1 {
+				return i
+			} else if str[i+j] == spr[j] && j != len(spr)-1 {
 				continue
 			} else {
 				break
