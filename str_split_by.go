@@ -2,36 +2,41 @@ package sprint
 
 func StrSplitBy(s, sep string) []string {
 	res := []string{}
-	var word []byte
+	var word, spr []byte
+
 	var IsSep bool
-	i := 0
+	cnt := 0
 
-	for i < len(s) {
-		if s[i] == sep[0] {
-			for j := 0; j < len(sep); j++ {
+	for i := 0; i < len(s); i++ {
 
-				if s[i+j] != sep[j] {
-
-					IsSep = false
-					break
-				} else if j == len(sep)-1 {
-					IsSep = true
-				}
-
+		if s[i] == sep[cnt] {
+			if cnt == len(sep)-1 {
+				IsSep = true
+				spr = []byte{}
+			} else {
+				spr = append(spr, s[i])
+				cnt++
+				continue
 			}
-
-			if IsSep {
-				res = append(res, string(word))
-				word = []byte{}
-				i += len(sep)
-				IsSep = false
-			}
+		} else {
+			word = append(spr, word...)
+			spr = []byte{}
+			cnt = 0
 		}
+
+		if IsSep {
+			res = append(res, string(spr)+string(word))
+			word = []byte{}
+			IsSep = false
+			cnt = 0
+			continue
+		}
+
 		word = append(word, s[i])
+
 		if i == len(s)-1 && !IsSep {
 			res = append(res, string(word))
 		}
-		i++
 	}
 
 	return res
