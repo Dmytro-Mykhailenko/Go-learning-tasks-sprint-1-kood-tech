@@ -7,6 +7,9 @@ func StrSplitBy(s, sep string) []string {
 	var IsSep bool
 	cnt := 0
 
+	if len(s) == 0 {
+		return res
+	}
 	for i := 0; i < len(s); i++ {
 
 		if s[i] == sep[cnt] {
