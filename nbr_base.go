@@ -25,5 +25,5 @@ func NbrBase(n int, base string) string {
 		resStr = "-" + resStr
 	}
 
-	return resStr
+	return resStr + " " + base
 }
