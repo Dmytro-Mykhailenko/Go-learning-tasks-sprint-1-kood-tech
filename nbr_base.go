@@ -2,62 +2,57 @@ package sprint
 
 func NbrBase(n int, base string) string {
 
-	bs := []rune(base)
-
-	if len(bs) <= 2 {
-		if len(bs) < 2 {
-			return "NV"
-		} else {
-			if bs[0] == bs[1] {
-				return "NV"
-			}
-		}
+	if !IsValidBase(base) {
+		return "NV"
 	}
 
-	for i := 0; i < len(bs); i++ {
-		cnt := 0
-
-		for j := i + 1; j < len(bs); j++ {
-			if bs[i] == '+' || bs[j] == '+' || bs[i] == '-' || bs[j] == '-' {
-				return "NV"
-			}
-
-			if bs[i] == bs[j] {
-				cnt++
-				continue
-			}
-		}
-
-		if cnt == len(bs)-1 {
-			return "NV"
-		}
-	}
-	return Itoa(n, base)
-}
-
-func Itoa(n int, base string) string {
-	var resStr string
-	var isNegative bool
-
+	isNegative := false
 	if n < 0 {
-
 		isNegative = true
 		n = -n
 	}
 
+	x := len(base)
+	var result string
+
 	for n > 0 {
-
-		x := n % 10
-
-		resStr = string('0'+x) + resStr
-
-		n /= 10
+		y := n % x
+		result = string(base[y]) + result
+		n /= x
 	}
 
 	if isNegative {
-
-		resStr = "-" + resStr
+		result = "-" + result
 	}
 
-	return resStr + " " + base
+	return result
+}
+
+func IsValidBase(s string) bool {
+
+	if len(s) < 2 {
+		return false
+	}
+
+	var uniqueChars string
+	for _, char := range s {
+		found := false
+		if char == '-' || char == '+' {
+			return false
+		}
+		for _, existingChar := range uniqueChars {
+
+			if existingChar == char {
+				found = true
+				break
+			}
+		}
+		if !found {
+			uniqueChars += string(char)
+		}
+	}
+	if len(s) != len(uniqueChars) {
+		return false
+	}
+	return true
 }
