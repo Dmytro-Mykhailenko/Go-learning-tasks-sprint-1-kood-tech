@@ -1,5 +1,8 @@
 package sprint
 
+import "strconv"
+
 func NbrBase(n int, base string) string {
-	return "NV"
+
+	return strconv.Itoa(n)
 }
