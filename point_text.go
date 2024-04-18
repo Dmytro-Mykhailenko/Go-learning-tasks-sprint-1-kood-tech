@@ -13,3 +13,10 @@ func PointText(p Point) Point {
 	nP := MakePoint(p.X, p.Y, fmt.Sprintf("Text at (%v, %v)", p.X, p.Y))
 	return nP
 }
+
+func MakePoint(x, y float32, text string) Point {
+
+	var p Point = Point{x, y, text}
+
+	return p
+}
