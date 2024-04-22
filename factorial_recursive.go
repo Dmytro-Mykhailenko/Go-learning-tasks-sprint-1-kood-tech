@@ -10,7 +10,7 @@ func FactorialRecursive(n int) int {
 		return n
 	}
 
-	x := FactorialIterative(n - 1)
+	x := FactorialRecursive(n - 1)
 
 	if y := x * n; y <= 0 {
 		return 0
