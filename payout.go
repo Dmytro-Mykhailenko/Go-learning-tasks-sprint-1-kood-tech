@@ -2,6 +2,8 @@ package sprint
 
 func Payout(amount int, denominations []int) (payout []int) {
 
+	denominations = SortIntegerTable(denominations)
+
 	var out []int
 	i := len(denominations) - 1
 
@@ -31,4 +33,20 @@ func Payout(amount int, denominations []int) (payout []int) {
 			return out
 		}
 	}
+}
+
+func SortIntegerTable(table []int) []int {
+
+	var x int
+
+	for i := 0; i < len(table)-1; i++ {
+		for j := i + 1; j < len(table); j++ {
+			if table[i] > table[j] {
+				x = table[i]
+				table[i] = table[j]
+				table[j] = x
+			}
+		}
+	}
+	return table
 }
