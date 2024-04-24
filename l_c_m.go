@@ -9,6 +9,14 @@ func LCM(a, b int) int {
 		b = -b
 	}
 
+	if a == 0 {
+		return b
+	}
+
+	if b == 0 {
+		return a
+	}
+
 	x, y := a, b
 
 	for a != b {
