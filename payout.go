@@ -3,26 +3,32 @@ package sprint
 func Payout(amount int, denominations []int) (payout []int) {
 
 	var out []int
+	i := len(denominations) - 1
 
-	for i := len(denominations) - 1; i >= 0; i-- {
+	for {
 
 		if amount >= denominations[i] {
 
 			amount -= denominations[i]
 			out = append(out, denominations[i])
 
-			if amount == 0 {
+		} else if i > 0 {
 
-				return out
-			}
+			i--
+			continue
+		}
 
-			if amount < 0 {
+		if amount == 0 {
 
-				out = []int{}
-				break
-			}
+			return out
+		}
+
+		if i == 0 && amount-denominations[i] == 0 {
+
+			continue
+		} else if i == 0 && amount-denominations[i] < 0 {
+			out = []int{}
+			return out
 		}
 	}
-
-	return out
 }
