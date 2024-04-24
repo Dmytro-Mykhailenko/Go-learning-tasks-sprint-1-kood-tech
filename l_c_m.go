@@ -10,11 +10,11 @@ func LCM(a, b int) int {
 	}
 
 	if a == 0 {
-		return b
+		return 0
 	}
 
 	if b == 0 {
-		return a
+		return 0
 	}
 
 	x, y := a, b
