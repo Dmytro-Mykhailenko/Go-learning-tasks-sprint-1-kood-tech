@@ -25,7 +25,7 @@ func LongestClimb(arr []int) []int {
 			in = append(in, arr[i-1])
 		}
 
-		if cnt >= len(out) {
+		if cnt > len(out) {
 
 			out = in
 		}
