@@ -4,6 +4,10 @@ import "fmt"
 
 func StrCompress(input string) string {
 
+	if len(input) < 2 {
+		return input
+	}
+
 	sStr := []rune(input)
 	var res string
 	cnt := 1
