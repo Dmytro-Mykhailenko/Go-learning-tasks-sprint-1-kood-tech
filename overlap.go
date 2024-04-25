@@ -5,6 +5,11 @@ func Overlap(arr1, arr2 []int) []int {
 	arr1 = SortIntegerTable(arr1)
 	arr2 = SortIntegerTable(arr2)
 
+	if len(arr2) < len(arr1) {
+
+		arr1, arr2 = arr2, arr1
+	}
+
 	out := []int{}
 	found := false
 	j := 0
