@@ -2,7 +2,10 @@ package sprint
 
 func Overlap(arr1, arr2 []int) []int {
 
-	var out []int
+	arr1 = SortIntegerTable(arr1)
+	arr2 = SortIntegerTable(arr2)
+
+	out := []int{}
 	found := false
 	j := 0
 	f := 0
@@ -29,4 +32,20 @@ func Overlap(arr1, arr2 []int) []int {
 	}
 
 	return out
+}
+
+func SortIntegerTable(table []int) []int {
+
+	var x int
+
+	for i := 0; i < len(table)-1; i++ {
+		for j := i + 1; j < len(table); j++ {
+			if table[i] > table[j] {
+				x = table[i]
+				table[i] = table[j]
+				table[j] = x
+			}
+		}
+	}
+	return table
 }
