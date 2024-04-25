@@ -2,7 +2,6 @@ package sprint
 
 func LongestCommonSubstr(str1, str2 string) string {
 
-	found := false
 	res := ""
 	lcs := ""
 
@@ -14,25 +13,26 @@ func LongestCommonSubstr(str1, str2 string) string {
 
 			if str1[i+k] == str2[j] {
 
-				found = true
 				res += string(str2[j])
 				k++
 				if i+k > len(str1)-1 {
 					break
 				}
-				// continue
-			} else if found {
+				continue
+			} else if len(res) > len(lcs) {
 
-				break
+				lcs = res
+
 			}
+			k = 0
+			res = ""
 		}
 
-		if found && len(res) > len(lcs) {
+		if len(res) > len(lcs) {
 
 			lcs = res
 		}
 
-		found = false
 		res = ""
 	}
 
