@@ -29,6 +29,8 @@ func Overlap(arr1, arr2 []int) []int {
 			found = false
 			if j != len(arr2)-1 {
 				j++
+			} else {
+				return out
 			}
 			f = j
 		} else {
