@@ -30,7 +30,7 @@ func ToRoman(num int) string {
 
 			if i < len(b)-2 {
 
-				if num < b[i] && b[i]-num <= b[i+2] {
+				if b[i]-num <= b[i+2] {
 
 					num += b[i+2]
 					out += retNumRom(b[i+2])
@@ -39,9 +39,15 @@ func ToRoman(num int) string {
 			}
 			if i < len(b)-1 {
 
-				i++
-				continue
+				if num+b[i+1] == b[i] {
+					num += b[i+1]
+					out += retNumRom(b[i+1])
+					continue
+				}
 			}
+
+			i++
+			continue
 		}
 	}
 
