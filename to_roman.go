@@ -12,43 +12,32 @@ func ToRoman(num int) string {
 	i := 0
 
 	for {
-
-		if num >= b[i] {
-
-			num -= b[i]
-			out += retNumRom(b[i])
-
-		}
-
 		if num == 0 {
 
 			break
 
 		}
+		if num >= b[i] {
 
-		if num < b[i] {
-
-			if i < len(b)-2 {
-
-				if b[i]-num <= b[i+2] {
-
-					num += b[i+2]
-					out += retNumRom(b[i+2])
-					continue
-				}
-			}
-			if i < len(b)-1 {
-
-				if num+b[i+1] == b[i] {
-					num += b[i+1]
-					out += retNumRom(b[i+1])
-					continue
-				}
-			}
-
-			i++
+			num -= b[i]
+			out += retNumRom(b[i])
 			continue
 		}
+		if i < len(b)-2 {
+			if num < b[i] && float32(num) >= 0.9*float32(b[i]) && num-b[i+1] < b[i+1] {
+				num += b[i+2]
+				out += retNumRom(b[i+2])
+				// i++
+				continue
+			}
+			if num < b[i] && float32(num) >= 0.8*float32(b[i]) && num-b[i+1] > b[i+1] {
+				num += b[i+1]
+				out += retNumRom(b[i+1])
+				// i++
+				continue
+			}
+		}
+		i++
 	}
 
 	return out
